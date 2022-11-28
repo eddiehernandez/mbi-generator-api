@@ -1,0 +1,27 @@
+service: mbi-generator-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-2
+  profile: eddie-personal
+  deploymentMethod: direct
+
+functions:
+  generateMBI:
+    handler: src/useCases/generateMBI/generateMBIHandler.main
+    events:
+      - httpApi:
+          path: /generate
+          method: get
+  verifyMBI:
+    handler: src/useCases/verifyMBI/verifyMBIHandler.main
+    events:
+      - httpApi:
+          path: /verify
+          method: post
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
