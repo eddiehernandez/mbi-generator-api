@@ -1,4 +1,5 @@
-import HandlersLib from "../../utils/HandlersLib"
+import HandlersLib from "../../shared/HandlersLib"
+import VerifyMBIController from "./VerifyMBIController"
 
 module.exports.main = async (event: any) => {
 
@@ -10,9 +11,19 @@ module.exports.main = async (event: any) => {
             message: `mbi is required for verification`
     })
 
-    const response = {
-        validMBI: valid
+    try {
+        valid = VerifyMBIController.verify(mbi)
+        const response = {
+            mbi: mbi,
+            valid: valid
+        }
+        
+        return HandlersLib.handlerReponse(200, response)
     }
-    
-    return HandlersLib.handlerReponse(200, response)
+    catch (e){
+        return HandlersLib.handlerReponse(500, e.message)
+    }
+
+
+
 }

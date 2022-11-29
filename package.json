@@ -8,7 +8,9 @@
     "deploy": "serverless deploy --verbose",
     "remote-getCustomer": "serverless invoke -f getCustomer",
     "remove": "serverless remove",
-    "test": "jest"
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",

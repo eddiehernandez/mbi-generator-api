@@ -1,8 +1,17 @@
-import HandlersLib from "../../utils/HandlersLib"
+import HandlersLib from "../../shared/HandlersLib"
+import GenerateMBIController from "./GenerateMBIController"
 
 module.exports.main = async (event: any) => {
+    try {
+        const mbi = GenerateMBIController.generate()
+        console.log(`mbi = ${mbi}`)
+        const response = {
+            mbi: mbi
+        }
+        return HandlersLib.handlerReponse(200, response)
 
-    const mbi = '123-456-7890'
-    
-    return HandlersLib.handlerReponse(200, mbi)
+    }
+    catch (e){
+        return HandlersLib.handlerReponse(500, e.message)
+    }
 }
