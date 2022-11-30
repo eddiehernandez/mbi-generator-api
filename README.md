@@ -1,2 +1,2 @@
-# Medicare Beneficiary Identifier (MBI) Generator - API
+# mbi-generator-api
 
