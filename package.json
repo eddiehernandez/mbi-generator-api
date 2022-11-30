@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "handler.ts",
   "scripts": {
-    "local-getCustomer": "serverless invoke local -f getCustomer",
+    "local-generateMBI": "serverless invoke local -f generateMBI",
     "local-api": "serverless offline start --printOutput",
     "deploy": "serverless deploy --verbose",
-    "remote-getCustomer": "serverless invoke -f getCustomer",
+    "remote-generateMBI": "serverless invoke -f generateMBI",
     "remove": "serverless remove",
     "test": "jest",
     "test-coverage": "jest --coverage"

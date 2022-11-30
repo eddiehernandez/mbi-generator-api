@@ -15,7 +15,7 @@ module.exports.main = async (event: any) => {
         valid = VerifyMBIController.verify(mbi)
         const response = {
             mbi: mbi,
-            valid: valid
+            valid: valid.toString()
         }
         
         return HandlersLib.handlerReponse(200, response)

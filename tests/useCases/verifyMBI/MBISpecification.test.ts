@@ -19,6 +19,12 @@ describe ('test mbi specification', () => {
         valid = MBISpecification.isSatisfiedBy('47W6FD5FR80') //bad 2nd digit
         expect(valid).toBeFalsy()
 
+        valid = MBISpecification.isSatisfiedBy('4aW6FD5FR80') //bad 2nd digit with lower case letter
+        expect(valid).toBeFalsy()
+
+        valid = MBISpecification.isSatisfiedBy('4YW6FD5FR80') //bad 2nd digit with lower case letter
+        expect(valid).toBeTruthy()
+
         valid = MBISpecification.isSatisfiedBy('4H?6FD5FR80') //bad 3rd digit
         expect(valid).toBeFalsy()
 

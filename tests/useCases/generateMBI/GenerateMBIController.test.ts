@@ -5,4 +5,5 @@ import GenerateMBIController from '../../../src/useCases/generateMBI/GenerateMBI
 test ('generate mbi controller generate', () => {
     const mbi: string = GenerateMBIController.generate()
     expect(mbi).toBeDefined()
+    expect(mbi.length).toBe(11)
 })

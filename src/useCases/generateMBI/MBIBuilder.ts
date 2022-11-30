@@ -10,31 +10,18 @@ export default class MBIBuilder {
 
     public static build(): string {
 
-        let mbi = ''
-        for (let i = 1; i <= 11; i++){
-            switch (i) {
-                case 1: 
-                    mbi += Utils.getRandomChar(this._numbersNoZero)
-                    break
-                case 2:
-                case 5:
-                case 8:
-                case 9:
-                    mbi += Utils.getRandomChar(this._alphas)
-                    break
-                case 3:
-                case 6:
-                    mbi += Utils.getRandomChar(this._alphasAndNumbers)
-                    break
-                case 4:
-                case 7:
-                case 10:
-                case 11:
-                    mbi += Utils.getRandomChar(this._numbers)
-                    break
+        let mbi = Utils.getRandomChar(this._numbersNoZero) // pos 1 (1-9)
+            mbi += Utils.getRandomChar(this._alphas) //pos 2 (A-Z) excluding SLOIBZ
+            mbi += Utils.getRandomChar(this._alphasAndNumbers) //pos 3  (0-9) (A-Z) excluding SLOIBZ
+            mbi += Utils.getRandomChar(this._numbers) //pos 4 (0-9)
+            mbi += Utils.getRandomChar(this._alphas) //pos 5 (A-Z) excluding SLOIBZ
+            mbi += Utils.getRandomChar(this._alphasAndNumbers) //pos 6
+            mbi += Utils.getRandomChar(this._numbers) //pos 7 (0-9)
+            mbi += Utils.getRandomChar(this._alphas) //pos 8 (A-Z) excluding SLOIBZ
+            mbi += Utils.getRandomChar(this._alphas) //pos 9 (A-Z) excluding SLOIBZ
+            mbi += Utils.getRandomChar(this._numbers) //pos 10 (0-9)
+            mbi += Utils.getRandomChar(this._numbers) //pos 11 (0-9)
 
-            }
-        }
         return mbi
     }
 }
