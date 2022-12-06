@@ -12,6 +12,7 @@ module.exports.main = async (event: any) => {
 
     }
     catch (e){
+        console.log(e)
         return HandlersLib.handlerReponse(500, e.message)
     }
 }
